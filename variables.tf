@@ -5,6 +5,9 @@ variable "name" {
 variable "handler_name" {
   description = "Handler name prefix. E.g. 'method' will be turned into 'method.handler' as lambda function handler"
 }
+variable "description" {
+  description = "Handler description"
+}
 variable "memory_limit" {
   default = "128"
 }
@@ -24,4 +27,5 @@ locals {
   lambda_archive = var.archive_path
   memory_limit   = var.memory_limit
   timeout        = var.timeout
+  description    = var.description
 }
