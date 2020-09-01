@@ -7,4 +7,6 @@ resource "aws_lambda_function" "lambda" {
   runtime          = local.runtime
   publish          = "true"
   provider         = aws.us
+  memory_limit     = local.memory_limit
+  timeout          = local.timeout
 }
