@@ -21,26 +21,6 @@ resource "aws_iam_role_policy_attachment" "lambda_access_to_write_logs" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
 
-resource "aws_iam_policy" "lambda-edge-s3-policy" {
-  name        = "lambda-edge-s3-policy"
-  description = "Policy for s3:GetObject lambda"
-
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
-}
-EOF
-}
-
 resource "aws_iam_role_policy_attachment" "image-service-role-policy-attach" {
   role       = aws_iam_role.lambda.name
   policy_arn = aws_iam_policy.lambda-edge-s3-policy.arn
