@@ -20,8 +20,3 @@ resource "aws_iam_role_policy_attachment" "lambda_access_to_write_logs" {
   role       = aws_iam_role.lambda.name
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
-
-resource "aws_iam_role_policy_attachment" "image-service-role-policy-attach" {
-  role       = aws_iam_role.lambda.name
-  policy_arn = aws_iam_policy.lambda-edge-s3-policy.arn
-}
